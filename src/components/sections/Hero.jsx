@@ -19,6 +19,7 @@ const Hero = () => {
       <div className={styles.content}>
         <span className={styles.decorativeText}>Bienvenida a</span>
         <h1 className={styles.title}>Tejedoras de Sueños</h1>
+        <p className={styles.lema}>
           Juntas somos poder y magia para transformar el mundo
         </p>
         <p className={styles.subtitle}>
