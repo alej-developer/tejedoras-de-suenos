@@ -1,0 +1,52 @@
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.elevated {
+  box-shadow: var(--shadow-md);
+}
+
+.elevated:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.flat {
+  box-shadow: none;
+  border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+}
+
+.flat:hover {
+  border-color: rgba(var(--color-primary-rgb), 0.3);
+}
+
+.bordered {
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--color-white), var(--color-white)),
+    linear-gradient(135deg, var(--color-primary-light), var(--color-accent), var(--color-secondary-light));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.bordered:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+.cardImage {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.cardBody {
+  padding: var(--space-6);
+}
+
+.cardBodyCompact {
+  padding: var(--space-4);
+}
