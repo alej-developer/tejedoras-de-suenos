@@ -5,14 +5,6 @@ import useScrollAnimation from '../../hooks/useScrollAnimation';
 import catalogo, { formatPrecio } from '../../data/catalogo';
 import styles from './CatalogoPreview.module.css';
 
-const emojiMap = {
-  Agendas: '📓',
-  Cristales: '💎',
-  Kits: '🎁',
-  Aceites: '🫧',
-  Amuletos: '🧿',
-  Velas: '🕯️',
-};
 
 const CatalogoPreview = () => {
   const sectionRef = useScrollAnimation();
@@ -33,7 +25,9 @@ const CatalogoPreview = () => {
             className={`${styles.card} animate-on-scroll delay-${index + 1}`}
           >
             <div className={styles.imagePlaceholder}>
-              {emojiMap[producto.categoria] || '✨'}
+              {producto.imagen ? (
+                <img src={producto.imagen} alt={producto.nombre} className={styles.productImage} />
+              ) : null}
             </div>
             <div className={styles.body}>
               <span className={styles.categoria}>{producto.categoria}</span>

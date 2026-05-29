@@ -4,15 +4,15 @@ import useScrollAnimation from '../../hooks/useScrollAnimation';
 import styles from './Galeria.module.css';
 
 const galeriaItems = [
-  { id: 1, emoji: '🧘‍♀️', label: 'Sesión de meditación', ar: '4/3' },
-  { id: 2, emoji: '🌸', label: 'Taller de empoderamiento', ar: '1' },
-  { id: 3, emoji: '🔮', label: 'Cristales y herramientas', ar: '3/4' },
-  { id: 4, emoji: '🕯️', label: 'Espacio de sanación', ar: '4/3' },
-  { id: 5, emoji: '👩‍👩‍👧‍👧', label: 'Círculo de mujeres', ar: '1' },
-  { id: 6, emoji: '✨', label: 'Ritual de luna llena', ar: '3/4' },
-  { id: 7, emoji: '📿', label: 'Amuletos artesanales', ar: '1' },
-  { id: 8, emoji: '🌿', label: 'Conexión con la naturaleza', ar: '4/3' },
-  { id: 9, emoji: '💜', label: 'Terapia angelical', ar: '3/4' },
+  { id: 1, img: '/assets/images/service_meditation.png', label: 'Sesión de meditación', ar: '4/3' },
+  { id: 2, img: '/assets/images/service_empowerment.png', label: 'Taller de empoderamiento', ar: '1' },
+  { id: 3, img: '/assets/images/product_crystals.png', label: 'Cristales y herramientas', ar: '3/4' },
+  { id: 4, img: '/assets/images/gallery_1.png', label: 'Espacio de sanación', ar: '4/3' },
+  { id: 5, img: '/assets/images/gallery_2.png', label: 'Cuencos tibetanos', ar: '1' },
+  { id: 6, img: '/assets/images/service_akashic.png', label: 'Registros Akáshicos', ar: '3/4' },
+  { id: 7, img: '/assets/images/product_amulets.png', label: 'Amuletos artesanales', ar: '1' },
+  { id: 8, img: '/assets/images/product_oils.png', label: 'Conexión natural', ar: '4/3' },
+  { id: 9, img: '/assets/images/service_angelical.png', label: 'Terapia angelical', ar: '3/4' },
 ];
 
 const Galeria = () => {
@@ -39,12 +39,12 @@ const Galeria = () => {
             onKeyDown={(e) => e.key === 'Enter' && setLightboxItem(item)}
           >
             <div
-              className={styles.imagePlaceholder}
+              className={styles.imageContainer}
               style={{ '--ar': item.ar }}
             >
-              {item.emoji}
+              <img src={item.img} alt={item.label} className={styles.galleryImage} />
             </div>
-            <div className={styles.overlay}>🔍</div>
+            <div className={styles.overlay}>Ver</div>
           </div>
         ))}
       </div>
@@ -64,7 +64,7 @@ const Galeria = () => {
             ✕
           </button>
           <div className={styles.lightboxContent}>
-            {lightboxItem.emoji}
+            <img src={lightboxItem.img} alt={lightboxItem.label} className={styles.lightboxImage} />
           </div>
         </div>
       )}

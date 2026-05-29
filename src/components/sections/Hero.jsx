@@ -14,14 +14,12 @@ const Hero = () => {
       <div className={styles.bgOverlay} />
       <FloatingParticles />
 
-      <span className={`${styles.flowerCorner} ${styles.flowerTopLeft}`} aria-hidden="true">🌿</span>
-      <span className={`${styles.flowerCorner} ${styles.flowerBottomRight}`} aria-hidden="true">🌸</span>
+
 
       <div className={styles.content}>
         <span className={styles.decorativeText}>Bienvenida a</span>
         <h1 className={styles.title}>Tejedoras de Sueños</h1>
-        <p className={styles.lema}>
-          ✨ Juntas somos poder y magia para transformar el mundo ✨
+          Juntas somos poder y magia para transformar el mundo
         </p>
         <p className={styles.subtitle}>
           Sanación angelical, empoderamiento femenino y bienestar holístico
@@ -29,11 +27,11 @@ const Hero = () => {
         </p>
         <div className={styles.actions}>
           <Button variant="primary" size="lg" onClick={scrollToServices}>
-            ✿ Conoce mis servicios
+            Conoce mis servicios
           </Button>
           <Link to="/agendar">
             <Button variant="outline" size="lg" style={{ borderColor: 'var(--color-primary-light)', color: 'var(--color-primary-light)' }}>
-              🗓️ Agenda tu cita
+              Agenda tu cita
             </Button>
           </Link>
         </div>

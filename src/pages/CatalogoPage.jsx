@@ -22,7 +22,7 @@ const CatalogoPage = () => {
     return matchCategoria && matchBusqueda;
   });
 
-  const emojiMap = { Agendas: '📓', Cristales: '💎', Kits: '🎁', Aceites: '🫧', Amuletos: '🧿', Velas: '🕯️' };
+
 
   return (
     <main style={pageStyle}>
@@ -96,13 +96,12 @@ const CatalogoPage = () => {
             >
               <div style={{
                 aspectRatio: '1',
-                background: 'linear-gradient(135deg, var(--color-accent-light), var(--color-secondary-light))',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '3.5rem',
+                background: 'var(--color-background)',
+                overflow: 'hidden'
               }}>
-                {emojiMap[producto.categoria] || '✨'}
+                {producto.imagen && (
+                  <img src={producto.imagen} alt={producto.nombre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                )}
               </div>
               <div style={{ padding: '1.25rem' }}>
                 <span style={{

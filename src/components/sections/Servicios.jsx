@@ -5,12 +5,18 @@ import useScrollAnimation from '../../hooks/useScrollAnimation';
 import servicios from '../../data/servicios';
 import styles from './Servicios.module.css';
 
+import imgAngelical from '/assets/images/service_angelical.png';
+import imgEnergy from '/assets/images/service_energy.png';
+import imgAkashic from '/assets/images/service_akashic.png';
+import imgMeditation from '/assets/images/service_meditation.png';
+import imgEmpowerment from '/assets/images/service_empowerment.png';
+
 const iconMap = {
-  angel: '👼',
-  energy: '✨',
-  book: '📖',
-  lotus: '🧘‍♀️',
-  hands: '🤝',
+  angel: <img src={imgAngelical} alt="Terapia Angelical" />,
+  energy: <img src={imgEnergy} alt="Sanación Energética" />,
+  book: <img src={imgAkashic} alt="Registros Akáshicos" />,
+  lotus: <img src={imgMeditation} alt="Meditación" />,
+  hands: <img src={imgEmpowerment} alt="Empoderamiento" />,
 };
 
 const Servicios = () => {

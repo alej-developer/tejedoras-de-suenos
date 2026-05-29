@@ -10,7 +10,7 @@ const catalogo = [
     categoria: 'Agendas',
     disponible: true,
     destacado: true,
-    imagen: null
+    imagen: '/assets/images/product_agenda.png'
   },
   {
     id: 'cuarzo-rosa',
@@ -21,7 +21,7 @@ const catalogo = [
     categoria: 'Cristales',
     disponible: true,
     destacado: true,
-    imagen: null
+    imagen: '/assets/images/product_crystals.png'
   },
   {
     id: 'amatista',
@@ -32,7 +32,7 @@ const catalogo = [
     categoria: 'Cristales',
     disponible: true,
     destacado: false,
-    imagen: null
+    imagen: '/assets/images/product_crystals.png'
   },
   {
     id: 'kit-meditacion',
@@ -43,7 +43,7 @@ const catalogo = [
     categoria: 'Kits',
     disponible: true,
     destacado: true,
-    imagen: null
+    imagen: '/assets/images/product_amulets.png'
   },
   {
     id: 'aceite-lavanda',
@@ -54,7 +54,7 @@ const catalogo = [
     categoria: 'Aceites',
     disponible: true,
     destacado: false,
-    imagen: null
+    imagen: '/assets/images/product_oils.png'
   },
   {
     id: 'amuleto-proteccion',
@@ -65,7 +65,7 @@ const catalogo = [
     categoria: 'Amuletos',
     disponible: true,
     destacado: true,
-    imagen: null
+    imagen: '/assets/images/product_amulets.png'
   },
   {
     id: 'vela-intencion',
@@ -76,7 +76,7 @@ const catalogo = [
     categoria: 'Velas',
     disponible: true,
     destacado: false,
-    imagen: null
+    imagen: '/assets/images/product_oils.png'
   },
   {
     id: 'diario-gratitud',
@@ -87,7 +87,7 @@ const catalogo = [
     categoria: 'Agendas',
     disponible: true,
     destacado: false,
-    imagen: null
+    imagen: '/assets/images/product_agenda.png'
   }
 ];
 

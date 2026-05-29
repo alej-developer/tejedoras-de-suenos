@@ -9,7 +9,19 @@ import servicios from '../../data/servicios';
 import { formatFechaConDia } from '../../utils/formatDate';
 import styles from './BookingSystem.module.css';
 
-const iconMap = { angel: '👼', energy: '✨', book: '📖', lotus: '🧘‍♀️', hands: '🤝' };
+import imgAngelical from '/assets/images/service_angelical.png';
+import imgEnergy from '/assets/images/service_energy.png';
+import imgAkashic from '/assets/images/service_akashic.png';
+import imgMeditation from '/assets/images/service_meditation.png';
+import imgEmpowerment from '/assets/images/service_empowerment.png';
+
+const iconMap = {
+  angel: <img src={imgAngelical} alt="" style={{width:'100%', height:'100%', objectFit:'cover', borderRadius:'50%'}} />,
+  energy: <img src={imgEnergy} alt="" style={{width:'100%', height:'100%', objectFit:'cover', borderRadius:'50%'}} />,
+  book: <img src={imgAkashic} alt="" style={{width:'100%', height:'100%', objectFit:'cover', borderRadius:'50%'}} />,
+  lotus: <img src={imgMeditation} alt="" style={{width:'100%', height:'100%', objectFit:'cover', borderRadius:'50%'}} />,
+  hands: <img src={imgEmpowerment} alt="" style={{width:'100%', height:'100%', objectFit:'cover', borderRadius:'50%'}} />,
+};
 
 const pasoLabels = ['Servicio', 'Fecha', 'Hora', 'Confirmar'];
 
@@ -55,7 +67,9 @@ const BookingSystem = () => {
             onClick={() => booking.seleccionarServicio(s.id)}
             type="button"
           >
-            <div className={styles.serviceIcon}>{iconMap[s.icono] || '✿'}</div>
+            <div className={styles.serviceIcon} style={{ width: '60px', height: '60px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {iconMap[s.icono]}
+            </div>
             <div className={styles.serviceName}>{s.nombre}</div>
             <div className={styles.serviceDuration}>🕐 {s.duracion}</div>
           </button>
@@ -188,7 +202,7 @@ const BookingSystem = () => {
 
         {booking.paso === 'confirmacion' ? (
           <Button variant="primary" onClick={booking.confirmarCita}>
-            ✨ Confirmar Cita
+             Confirmar Cita
           </Button>
         ) : (
           <Button variant="primary" onClick={booking.siguiente}>

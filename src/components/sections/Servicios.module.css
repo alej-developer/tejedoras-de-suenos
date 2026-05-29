@@ -43,9 +43,18 @@
 }
 
 .icon {
-  font-size: 3rem;
   margin-bottom: var(--space-4);
-  display: block;
+  display: flex;
+  justify-content: center;
+}
+
+.icon img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--color-primary-light);
 }
 
 .cardTitle {
