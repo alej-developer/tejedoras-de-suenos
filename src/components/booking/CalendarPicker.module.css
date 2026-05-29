@@ -1,0 +1,121 @@
+.calendar {
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.monthYear {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: capitalize;
+}
+
+.navBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+  background: transparent;
+  cursor: pointer;
+  font-size: var(--text-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+}
+
+.navBtn:hover {
+  background: rgba(var(--color-primary-rgb), 0.1);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.navBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.weekday {
+  text-align: center;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-lighter);
+  text-transform: uppercase;
+  padding: var(--space-2) 0;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-1);
+}
+
+.day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 2px solid transparent;
+  background: none;
+  color: var(--color-text);
+}
+
+.day:hover:not(.disabled):not(.selected) {
+  background: rgba(var(--color-primary-rgb), 0.08);
+  color: var(--color-primary);
+}
+
+.empty {
+  cursor: default;
+}
+
+.disabled {
+  color: var(--color-text-lighter);
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.available {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.today {
+  border-color: var(--color-secondary-light);
+  color: var(--color-secondary);
+}
+
+.selected {
+  background: var(--color-primary) !important;
+  color: white !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: var(--shadow-glow);
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .calendar {
+    max-width: 100%;
+  }
+}
