@@ -1,49 +1,64 @@
-// Helpers para persistir citas en localStorage (MVP)
-// En Fase 2, estos helpers se reemplazarán por llamadas a un backend
+import { collection, addDoc, getDocs, query, where, Timestamp } from 'firebase/firestore';
+import { db } from '../config/firebase';
 
-const STORAGE_KEY = 'tejedoras_citas';
+const COLLECTION_NAME = 'citas';
 
 /**
- * Obtiene todas las citas guardadas
+ * Guarda una nueva cita en Firestore
  */
-export const obtenerCitas = () => {
+export const guardarCita = async (cita) => {
   try {
-    const data = localStorage.getItem(STORAGE_KEY);
-    return data ? JSON.parse(data) : [];
-  } catch {
-    return [];
+    const docRef = await addDoc(collection(db, COLLECTION_NAME), {
+      ...cita,
+      creadaEn: Timestamp.now()
+    });
+    return {
+      ...cita,
+      id: docRef.id
+    };
+  } catch (error) {
+    console.error("Error al guardar la cita: ", error);
+    throw new Error("No se pudo guardar la cita. Inténtalo de nuevo más tarde.");
   }
 };
 
 /**
- * Guarda una nueva cita
+ * Verifica si un slot específico está ocupado consultando a Firestore
  */
-export const guardarCita = (cita) => {
-  const citas = obtenerCitas();
-  const nuevaCita = {
-    ...cita,
-    id: Date.now().toString(36) + Math.random().toString(36).substr(2),
-    creadaEn: new Date().toISOString()
-  };
-  citas.push(nuevaCita);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(citas));
-  return nuevaCita;
-};
-
-/**
- * Verifica si un slot específico está ocupado
- */
-export const esSlotOcupado = (fecha, hora) => {
-  const citas = obtenerCitas();
-  return citas.some(cita => cita.fecha === fecha && cita.hora === hora);
+export const esSlotOcupado = async (fecha, hora) => {
+  try {
+    const q = query(
+      collection(db, COLLECTION_NAME), 
+      where("fecha", "==", fecha), 
+      where("hora", "==", hora)
+    );
+    const querySnapshot = await getDocs(q);
+    return !querySnapshot.empty;
+  } catch (error) {
+    console.error("Error al verificar disponibilidad: ", error);
+    // En caso de error, preferimos bloquear el slot por seguridad o lanzar el error
+    throw new Error("Error al verificar disponibilidad.");
+  }
 };
 
 /**
  * Obtiene las citas de un día específico
  */
-export const obtenerCitasPorDia = (fecha) => {
-  const citas = obtenerCitas();
-  return citas.filter(cita => cita.fecha === fecha);
+export const obtenerCitasPorDia = async (fecha) => {
+  try {
+    const q = query(collection(db, COLLECTION_NAME), where("fecha", "==", fecha));
+    const querySnapshot = await getDocs(q);
+    
+    const citas = [];
+    querySnapshot.forEach((doc) => {
+      citas.push({ id: doc.id, ...doc.data() });
+    });
+    
+    return citas;
+  } catch (error) {
+    console.error("Error al obtener citas por día: ", error);
+    return [];
+  }
 };
 
 /**
