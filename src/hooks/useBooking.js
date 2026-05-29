@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import horariosDisponibles, { generarSlots, esDiaBloqueado, esFechaValida } from '../data/horariosDisponibles';
-import { esSlotOcupado, guardarCita, generarMensajeWhatsApp, generarICS } from '../utils/bookingStorage';
+import { obtenerCitasPorDia, guardarCita, generarMensajeWhatsApp, generarICS } from '../services/bookingService';
 import { formatFechaConDia } from '../utils/formatDate';
 import servicios from '../data/servicios';
 
@@ -19,6 +19,8 @@ const useBooking = () => {
   });
   const [citaConfirmada, setCitaConfirmada] = useState(null);
   const [errores, setErrores] = useState({});
+  const [cargando, setCargando] = useState(false);
+  const [citasDelDia, setCitasDelDia] = useState([]);
 
   const paso = PASOS[pasoActual];
 
@@ -27,9 +29,18 @@ const useBooking = () => {
     setServicioSeleccionado(servicio);
   }, []);
 
-  const seleccionarFecha = useCallback((fecha) => {
+  const seleccionarFecha = useCallback(async (fecha) => {
     setFechaSeleccionada(fecha);
     setHoraSeleccionada(null);
+    setCargando(true);
+    try {
+      const citas = await obtenerCitasPorDia(fecha);
+      setCitasDelDia(citas);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setCargando(false);
+    }
   }, []);
 
   const seleccionarHora = useCallback((hora) => {
@@ -52,22 +63,9 @@ const useBooking = () => {
     
     return slots.map(slot => ({
       ...slot,
-      disponible: !esSlotOcupado(fechaSeleccionada, slot.hora)
+      disponible: !citasDelDia.some(c => c.hora === slot.hora)
     }));
-  }, [fechaSeleccionada, servicioSeleccionado]);
-
-  const validarFecha = useCallback((fecha) => {
-    const fechaStr = `${fecha.getFullYear()}-${String(fecha.getMonth() + 1).padStart(2, '0')}-${String(fecha.getDate()).padStart(2, '0')}`;
-    
-    if (!esFechaValida(fecha)) return false;
-    if (esDiaBloqueado(fechaStr)) return false;
-    
-    // Verificar que el día de la semana tenga horarios
-    const diaSemana = fecha.getDay();
-    if (!horariosDisponibles.horariosPorDia[diaSemana]) return false;
-    
-    return true;
-  }, []);
+  }, [fechaSeleccionada, servicioSeleccionado, citasDelDia]);
 
   const validarPaso = useCallback(() => {
     const nuevosErrores = {};
@@ -123,23 +121,32 @@ const useBooking = () => {
     }
   }, [pasoActual]);
 
-  const confirmarCita = useCallback(() => {
+  const confirmarCita = useCallback(async () => {
     if (!validarPaso()) return null;
 
-    const fechaFormateada = formatFechaConDia(fechaSeleccionada);
+    setCargando(true);
+    setErrores({});
+    try {
+      const fechaFormateada = formatFechaConDia(fechaSeleccionada);
 
-    const datosCita = {
-      servicio: servicioSeleccionado.nombre,
-      servicioId: servicioSeleccionado.id,
-      fecha: fechaSeleccionada,
-      fechaFormateada,
-      hora: horaSeleccionada,
-      ...datosCliente
-    };
+      const datosCita = {
+        servicio: servicioSeleccionado.nombre,
+        servicioId: servicioSeleccionado.id,
+        fecha: fechaSeleccionada,
+        fechaFormateada,
+        hora: horaSeleccionada,
+        ...datosCliente
+      };
 
-    const citaGuardada = guardarCita(datosCita);
-    setCitaConfirmada(citaGuardada);
-    return citaGuardada;
+      const citaGuardada = await guardarCita(datosCita);
+      setCitaConfirmada(citaGuardada);
+      return citaGuardada;
+    } catch (error) {
+      setErrores(prev => ({ ...prev, confirmacion: error.message || 'Error al guardar cita' }));
+      return null;
+    } finally {
+      setCargando(false);
+    }
   }, [validarPaso, servicioSeleccionado, fechaSeleccionada, horaSeleccionada, datosCliente]);
 
   const enviarWhatsApp = useCallback(() => {
@@ -162,6 +169,7 @@ const useBooking = () => {
     setDatosCliente({ nombre: '', telefono: '', email: '', nota: '' });
     setCitaConfirmada(null);
     setErrores({});
+    setCitasDelDia([]);
   }, []);
 
   return {
@@ -175,6 +183,7 @@ const useBooking = () => {
     datosCliente,
     citaConfirmada,
     errores,
+    cargando,
 
     // Acciones
     seleccionarServicio,

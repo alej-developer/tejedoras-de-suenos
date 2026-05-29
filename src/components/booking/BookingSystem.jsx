@@ -97,12 +97,19 @@ const BookingSystem = () => {
       <p className={styles.subtitle}>
         {booking.fechaSeleccionada && formatFechaConDia(booking.fechaSeleccionada)}
       </p>
-      <TimeSlotSelector
-        slots={booking.obtenerSlotsDisponibles()}
-        selectedSlot={booking.horaSeleccionada}
-        onSelectSlot={booking.seleccionarHora}
-        duracion={booking.servicioSeleccionado?.duracion}
-      />
+      {booking.cargando ? (
+        <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--color-primary)' }}>
+          <div className="spinner" style={{ width: '40px', height: '40px', border: '4px solid rgba(184,134,11,0.2)', borderTopColor: 'var(--color-primary)', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto 1rem' }}></div>
+          <p>Consultando disponibilidad...</p>
+        </div>
+      ) : (
+        <TimeSlotSelector
+          slots={booking.obtenerSlotsDisponibles()}
+          selectedSlot={booking.horaSeleccionada}
+          onSelectSlot={booking.seleccionarHora}
+          duracion={booking.servicioSeleccionado?.duracion}
+        />
+      )}
       {booking.errores.hora && <p className={styles.errorText}>{booking.errores.hora}</p>}
     </>
   );
@@ -201,11 +208,11 @@ const BookingSystem = () => {
         ) : <div />}
 
         {booking.paso === 'confirmacion' ? (
-          <Button variant="primary" onClick={booking.confirmarCita}>
-             Confirmar Cita
+          <Button variant="primary" onClick={booking.confirmarCita} disabled={booking.cargando}>
+             {booking.cargando ? 'Confirmando...' : 'Confirmar Cita'}
           </Button>
         ) : (
-          <Button variant="primary" onClick={booking.siguiente}>
+          <Button variant="primary" onClick={booking.siguiente} disabled={booking.cargando}>
             Siguiente →
           </Button>
         )}
