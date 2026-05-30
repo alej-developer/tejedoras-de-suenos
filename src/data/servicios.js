@@ -1,16 +1,17 @@
-// Datos de servicios ofrecidos por Diana Guzmán
-// Los precios y detalles específicos se actualizarán con información real
+// Datos de servicios basados en el Instagram @tejedorasdesuenos1
+// Terapia Angelical (Diana Guzmán) + Psicoterapia (Diana Cano)
 
 const servicios = [
   {
     id: 'terapia-angelical',
     nombre: 'Terapia Angelical',
-    descripcionCorta: 'Conexión con los ángeles para sanar y guiar tu camino espiritual.',
+    descripcionCorta: 'Conecta con la energía de los ángeles para sanar y encontrar tu camino de luz.',
     descripcion: 'La Terapia Angelical es un proceso de sanación profunda donde nos conectamos con la energía de los ángeles para liberar bloqueos emocionales, sanar heridas del pasado y abrir nuevos caminos de luz en tu vida. Cada sesión es única y personalizada según tus necesidades.',
     duracion: '60 minutos',
     modalidad: 'Presencial / Virtual',
     precio: 'Consultar',
     icono: 'angel',
+    imagen: '/assets/images/service_angelical.png',
     beneficios: [
       'Liberación de bloqueos emocionales',
       'Paz interior y claridad mental',
@@ -20,37 +21,39 @@ const servicios = [
     ]
   },
   {
-    id: 'sanacion-energetica',
-    nombre: 'Sanación Energética',
-    descripcionCorta: 'Armoniza tu energía vital y restaura el equilibrio de tu cuerpo y mente.',
-    descripcion: 'La Sanación Energética trabaja con los centros de energía (chakras) de tu cuerpo para restaurar el flujo vital y eliminar las energías estancadas que causan malestar físico y emocional. Utilizamos diversas técnicas como Reiki, imposición de manos y cristales.',
-    duracion: '90 minutos',
-    modalidad: 'Presencial',
+    id: 'psicoterapia',
+    nombre: 'Psicoterapia',
+    descripcionCorta: 'Acompañamiento profesional para tu bienestar emocional y crecimiento personal.',
+    descripcion: 'Sesiones de psicoterapia con enfoque humanista e integrativo. Un espacio seguro y confidencial donde trabajamos juntas para comprender tus emociones, superar dificultades y construir el bienestar que mereces.',
+    duracion: '60 minutos',
+    modalidad: 'Presencial / Virtual',
     precio: 'Consultar',
-    icono: 'energy',
+    icono: 'therapy',
+    imagen: '/assets/images/service_psicoterapia.png',
     beneficios: [
-      'Equilibrio de chakras',
-      'Reducción de estrés y ansiedad',
-      'Mejora del bienestar físico',
-      'Armonización emocional',
-      'Mayor vitalidad y energía'
+      'Manejo de ansiedad y estrés',
+      'Autoconocimiento profundo',
+      'Sanación emocional',
+      'Herramientas para el día a día',
+      'Espacio seguro y confidencial'
     ]
   },
   {
-    id: 'registros-akashicos',
-    nombre: 'Lectura de Registros Akáshicos',
-    descripcionCorta: 'Accede a la memoria del alma para comprender tu misión y propósito.',
-    descripcion: 'Los Registros Akáshicos son la memoria universal donde se almacena toda la información de tu alma a través de todas sus vidas. En esta lectura, accedemos a esa información sagrada para comprender patrones, resolver situaciones actuales y descubrir tu verdadero propósito.',
-    duracion: '75 minutos',
-    modalidad: 'Presencial / Virtual',
+    id: 'talleres-empoderamiento',
+    nombre: 'Talleres de Empoderamiento',
+    descripcionCorta: 'Despierta tu poder interior junto a otras mujeres en espacios de sororidad.',
+    descripcion: 'Los talleres de empoderamiento son espacios sagrados donde mujeres se reúnen para compartir, sanar y crecer juntas. A través de dinámicas grupales, meditaciones y ejercicios de autoconocimiento, descubrirás la fuerza y la magia que llevas dentro.',
+    duracion: '3 horas',
+    modalidad: 'Presencial / Grupal',
     precio: 'Consultar',
-    icono: 'book',
+    icono: 'hands',
+    imagen: '/assets/images/service_empowerment.png',
     beneficios: [
-      'Comprensión de patrones kármicos',
-      'Claridad sobre tu misión de vida',
-      'Respuestas a preguntas profundas',
-      'Liberación de ataduras del pasado',
-      'Empoderamiento personal'
+      'Sororidad y comunidad',
+      'Herramientas de autoconocimiento',
+      'Despertar del poder femenino',
+      'Sanación colectiva',
+      'Red de apoyo entre mujeres'
     ]
   },
   {
@@ -62,6 +65,7 @@ const servicios = [
     modalidad: 'Presencial / Virtual / Grupal',
     precio: 'Consultar',
     icono: 'lotus',
+    imagen: '/assets/images/service_meditation.png',
     beneficios: [
       'Reducción del estrés',
       'Mejora de la concentración',
@@ -71,20 +75,21 @@ const servicios = [
     ]
   },
   {
-    id: 'talleres-empoderamiento',
-    nombre: 'Talleres de Empoderamiento',
-    descripcionCorta: 'Despierta tu poder interior y transforma tu vida junto a otras mujeres.',
-    descripcion: 'Los talleres de empoderamiento son espacios sagrados donde mujeres se reúnen para compartir, sanar y crecer juntas. A través de dinámicas grupales, meditaciones y ejercicios de autoconocimiento, descubrirás la fuerza y la magia que llevas dentro.',
-    duracion: '3 horas',
-    modalidad: 'Presencial / Grupal',
-    precio: 'Consultar',
-    icono: 'hands',
+    id: 'circulos-mujeres',
+    nombre: 'Círculos de Mujeres',
+    descripcionCorta: 'Encuentros sagrados donde tejemos juntas nuestros sueños y sanamos en comunidad.',
+    descripcion: 'Los círculos de mujeres son rituales ancestrales de encuentro y sanación colectiva. Nos reunimos para celebrar los ciclos de la naturaleza, compartir nuestras historias y sostenernos mutuamente en el camino de transformación.',
+    duracion: '2-3 horas',
+    modalidad: 'Presencial',
+    precio: 'Aporte voluntario',
+    icono: 'circle',
+    imagen: '/assets/images/gallery_1.png',
     beneficios: [
-      'Sororidad y comunidad',
-      'Herramientas de autoconocimiento',
-      'Despertar del poder femenino',
+      'Conexión con otras mujeres',
+      'Rituales de luna llena y nueva',
       'Sanación colectiva',
-      'Red de apoyo entre mujeres'
+      'Espacio seguro de expresión',
+      'Reconexión con lo sagrado femenino'
     ]
   }
 ];
