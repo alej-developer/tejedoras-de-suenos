@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Flower2, Instagram, CalendarPlus } from 'lucide-react';
+import { Flower2, Camera, CalendarPlus } from 'lucide-react';
 import Button from '../ui/Button';
 import styles from './Navbar.module.css';
 
@@ -85,7 +85,7 @@ const Navbar = () => {
               aria-label="Instagram"
               title="Instagram"
             >
-              <Instagram size={20} strokeWidth={1.5} />
+              <Camera size={20} strokeWidth={1.5} />
             </a>
           </div>
 
@@ -138,7 +138,7 @@ const Navbar = () => {
 
         <div className={styles.mobileSocial}>
           <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-            <Instagram size={18} strokeWidth={1.5} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom' }} /> Instagram
+            <Camera size={18} strokeWidth={1.5} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom' }} /> Instagram
           </a>
         </div>
 

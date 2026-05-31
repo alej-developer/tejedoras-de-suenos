@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CheckCircle2, MessageCircle, Instagram, Calendar, CalendarPlus } from 'lucide-react';
+import { CheckCircle2, MessageCircle, Camera, Calendar, CalendarPlus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
@@ -125,7 +125,7 @@ const Contacto = () => {
           </div>
 
           <div className={styles.infoCard}>
-            <div className={styles.infoIcon}><Instagram size={32} strokeWidth={1.5} /></div>
+            <div className={styles.infoIcon}><Camera size={32} strokeWidth={1.5} /></div>
             <h3 className={styles.infoTitle}>Instagram</h3>
             <p className={styles.infoText}>
               Sígueme para contenido diario de bienestar y espiritualidad.

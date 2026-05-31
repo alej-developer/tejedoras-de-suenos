@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Flower2, Instagram, MessageCircle, MapPin, Sparkles } from 'lucide-react';
+import { Flower2, Camera, MessageCircle, MapPin, Sparkles } from 'lucide-react';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -27,7 +27,7 @@ const Footer = () => {
                 className={styles.socialLink}
                 aria-label="Síguenos en Instagram"
               >
-                <Instagram size={20} strokeWidth={1.5} />
+                <Camera size={20} strokeWidth={1.5} />
               </a>
               <a
                 href={`https://wa.me/${whatsappNumber}`}
@@ -56,7 +56,7 @@ const Footer = () => {
               <span>Pereira, Risaralda</span>
             </div>
             <div className={styles.contactItem}>
-              <span className={styles.contactIcon}><Instagram size={18} strokeWidth={1.5} /></span>
+              <span className={styles.contactIcon}><Camera size={18} strokeWidth={1.5} /></span>
               <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
                 @tejedorasdesuenos1
               </a>
