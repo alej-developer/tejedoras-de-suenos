@@ -5,108 +5,82 @@
   gap: var(--space-2);
   font-family: var(--font-body);
   font-weight: 600;
-  border-radius: var(--radius-full);
+  border: none;
   cursor: pointer;
-  transition: all var(--transition-base);
-  border: 2px solid transparent;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
+  white-space: nowrap;
   position: relative;
   overflow: hidden;
-  white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
-.btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-.btn:hover::before {
-  transform: translateX(100%);
-}
-
-/* Tamaños */
+/* Sizes */
 .sm {
-  padding: var(--space-2) var(--space-4);
   font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-lg);
 }
 
 .md {
-  padding: var(--space-3) var(--space-6);
   font-size: var(--text-base);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
 }
 
 .lg {
+  font-size: var(--text-base);
   padding: var(--space-4) var(--space-8);
-  font-size: var(--text-lg);
+  border-radius: var(--radius-xl);
 }
 
-/* Variante Primary */
+/* Primary */
 .primary {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-  color: var(--color-white);
-  box-shadow: 0 4px 15px rgba(var(--color-primary-rgb), 0.3);
+  background: var(--gradient-golden);
+  color: var(--color-white-pure);
+  box-shadow: 0 2px 12px rgba(var(--color-primary-rgb), 0.25);
 }
 
 .primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(var(--color-primary-rgb), 0.4);
+  box-shadow: 0 6px 24px rgba(var(--color-primary-rgb), 0.35);
+  filter: brightness(1.08);
 }
 
 .primary:active {
   transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(var(--color-primary-rgb), 0.2);
 }
 
-/* Variante Secondary */
-.secondary {
-  background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
-  color: var(--color-white);
-  box-shadow: 0 4px 15px rgba(var(--color-secondary-rgb), 0.3);
-}
-
-.secondary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(var(--color-secondary-rgb), 0.4);
-}
-
-/* Variante Outline */
+/* Outline */
 .outline {
   background: transparent;
   color: var(--color-primary);
-  border-color: var(--color-primary);
+  border: 1.5px solid rgba(var(--color-primary-rgb), 0.25);
 }
 
 .outline:hover {
-  background: var(--color-primary);
-  color: var(--color-white);
+  border-color: var(--color-primary);
+  background: rgba(var(--color-primary-rgb), 0.04);
   transform: translateY(-2px);
 }
 
-/* Variante Ghost */
-.ghost {
-  background: transparent;
-  color: var(--color-text);
-}
-
-.ghost:hover {
-  background: rgba(var(--color-primary-rgb), 0.1);
-  color: var(--color-primary);
-}
-
-/* Variante WhatsApp */
+/* WhatsApp */
 .whatsapp {
   background: var(--color-whatsapp);
-  color: white;
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  color: var(--color-white-pure);
+  box-shadow: 0 2px 12px rgba(37, 211, 102, 0.25);
 }
 
 .whatsapp:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
-  background: #20BA5C;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35);
+  filter: brightness(1.08);
+}
+
+/* Full width */
+.fullWidth {
+  width: 100%;
 }
 
 /* Disabled */
@@ -114,21 +88,5 @@
   opacity: 0.5;
   cursor: not-allowed;
   transform: none !important;
-  box-shadow: none !important;
-}
-
-.btn:disabled::before {
-  display: none;
-}
-
-/* Icono */
-.icon {
-  display: flex;
-  align-items: center;
-  font-size: 1.1em;
-}
-
-/* Full width */
-.fullWidth {
-  width: 100%;
+  filter: none !important;
 }

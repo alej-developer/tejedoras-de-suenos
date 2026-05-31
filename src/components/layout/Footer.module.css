@@ -12,8 +12,9 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-secondary-light), var(--color-primary));
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-primary-light), var(--color-accent), transparent);
+  opacity: 0.4;
 }
 
 .inner {
@@ -24,17 +25,18 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr;
   gap: var(--space-12);
   margin-bottom: var(--space-12);
 }
 
+/* Brand */
 .brandSection {}
 
 .brandName {
   font-family: var(--font-brand);
   font-size: var(--text-2xl);
-  color: var(--color-primary-light);
+  font-weight: 600;
   margin-bottom: var(--space-4);
   display: flex;
   align-items: center;
@@ -42,11 +44,11 @@
 }
 
 .brandDescription {
-  font-size: var(--text-sm);
-  color: rgba(255, 248, 240, 0.7);
+  font-size: var(--text-base);
+  color: rgba(253, 248, 244, 0.6);
   line-height: 1.8;
-  max-width: 350px;
   margin-bottom: var(--space-6);
+  max-width: 340px;
 }
 
 .socialLinks {
@@ -55,95 +57,111 @@
 }
 
 .socialLink {
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(218, 165, 32, 0.3);
-  color: var(--color-primary-light);
-  font-size: var(--text-lg);
+  border-radius: 50%;
+  font-size: var(--text-xl);
+  background: rgba(255, 255, 255, 0.06);
   transition: all var(--transition-base);
-  text-decoration: none;
+  color: rgba(253, 248, 244, 0.7);
 }
 
 .socialLink:hover {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-white);
-  transform: scale(1.1);
+  background: rgba(var(--color-primary-rgb), 0.2);
+  color: var(--color-primary-light);
+  transform: translateY(-2px);
 }
 
+/* Links */
 .linksSection h3,
 .contactSection h3 {
   font-family: var(--font-heading);
   font-size: var(--text-lg);
-  color: var(--color-primary-light);
-  margin-bottom: var(--space-6);
+  font-weight: 600;
+  margin-bottom: var(--space-5);
+  color: var(--color-white);
 }
 
 .footerLink {
   display: block;
-  color: rgba(255, 248, 240, 0.7);
-  font-size: var(--text-sm);
-  padding: var(--space-2) 0;
-  transition: color var(--transition-fast);
-  text-decoration: none;
+  font-size: var(--text-base);
+  color: rgba(253, 248, 244, 0.55);
+  padding: var(--space-1) 0;
+  transition: all var(--transition-base);
 }
 
 .footerLink:hover {
   color: var(--color-primary-light);
+  transform: translateX(4px);
 }
 
+/* Contact */
 .contactItem {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  color: rgba(255, 248, 240, 0.7);
-  font-size: var(--text-sm);
-  padding: var(--space-2) 0;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-base);
+  color: rgba(253, 248, 244, 0.55);
 }
 
 .contactIcon {
   font-size: var(--text-lg);
+  flex-shrink: 0;
 }
 
+/* Divider */
 .dividerLine {
   border: none;
   height: 1px;
-  background: rgba(218, 165, 32, 0.2);
-  margin-bottom: var(--space-8);
+  background: rgba(255, 255, 255, 0.06);
+  margin-bottom: var(--space-6);
 }
 
+/* Bottom */
 .bottom {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   gap: var(--space-4);
 }
 
 .copyright {
-  font-size: var(--text-xs);
-  color: rgba(255, 248, 240, 0.5);
+  font-size: var(--text-sm);
+  color: rgba(253, 248, 244, 0.35);
 }
 
 .quote {
   font-family: var(--font-decorative);
-  font-size: var(--text-xl);
-  color: var(--color-primary-light);
-  opacity: 0.7;
+  font-size: var(--text-lg);
+  color: rgba(var(--color-primary-rgb), 0.5);
 }
 
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
     gap: var(--space-8);
+    text-align: center;
+  }
+
+  .brandDescription {
+    max-width: none;
+  }
+
+  .socialLinks {
+    justify-content: center;
+  }
+
+  .contactItem {
+    justify-content: center;
   }
 
   .bottom {
-    flex-direction: column;
+    justify-content: center;
     text-align: center;
   }
 }
