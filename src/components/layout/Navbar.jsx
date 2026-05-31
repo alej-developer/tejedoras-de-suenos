@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Flower2, Instagram, CalendarPlus } from 'lucide-react';
 import Button from '../ui/Button';
 import styles from './Navbar.module.css';
 
@@ -52,7 +53,7 @@ const Navbar = () => {
       <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`} id="navbar">
         <div className={styles.inner}>
           <Link to="/" className={styles.logo}>
-            <span className={styles.logoIcon}>🌸</span>
+            <Flower2 className={styles.logoIcon} size={24} strokeWidth={1.5} />
             Tejedoras de Sueños
           </Link>
 
@@ -84,7 +85,7 @@ const Navbar = () => {
               aria-label="Instagram"
               title="Instagram"
             >
-              📷
+              <Instagram size={20} strokeWidth={1.5} />
             </a>
           </div>
 
@@ -137,13 +138,13 @@ const Navbar = () => {
 
         <div className={styles.mobileSocial}>
           <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-            📷 Instagram
+            <Instagram size={18} strokeWidth={1.5} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom' }} /> Instagram
           </a>
         </div>
 
         <div className={styles.mobileCta}>
           <Button variant="primary" fullWidth onClick={() => { setMenuOpen(false); window.location.href = '/agendar'; }}>
-            ✨ Agendar Cita
+            <CalendarPlus size={18} strokeWidth={1.5} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom' }} /> Agendar Cita
           </Button>
         </div>
       </nav>

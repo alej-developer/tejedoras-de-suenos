@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Flower2, Instagram, MessageCircle, MapPin, Sparkles } from 'lucide-react';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -12,7 +13,7 @@ const Footer = () => {
         <div className={styles.grid}>
           <div className={styles.brandSection}>
             <div className={styles.brandName}>
-              🌸 Tejedoras de Sueños
+              <Flower2 size={24} strokeWidth={1.5} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom' }} /> Tejedoras de Sueños
             </div>
             <p className={styles.brandDescription}>
               Sanación, espiritualidad y empoderamiento femenino.
@@ -26,7 +27,7 @@ const Footer = () => {
                 className={styles.socialLink}
                 aria-label="Síguenos en Instagram"
               >
-                📷
+                <Instagram size={20} strokeWidth={1.5} />
               </a>
               <a
                 href={`https://wa.me/${whatsappNumber}`}
@@ -35,7 +36,7 @@ const Footer = () => {
                 className={styles.socialLink}
                 aria-label="Contáctanos por WhatsApp"
               >
-                💬
+                <MessageCircle size={20} strokeWidth={1.5} />
               </a>
             </div>
           </div>
@@ -51,11 +52,11 @@ const Footer = () => {
           <div className={styles.contactSection}>
             <h3>Contacto</h3>
             <div className={styles.contactItem}>
-              <span className={styles.contactIcon}>📍</span>
+              <span className={styles.contactIcon}><MapPin size={18} strokeWidth={1.5} /></span>
               <span>Pereira, Risaralda</span>
             </div>
             <div className={styles.contactItem}>
-              <span className={styles.contactIcon}>📷</span>
+              <span className={styles.contactIcon}><Instagram size={18} strokeWidth={1.5} /></span>
               <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
                 @tejedorasdesuenos1
               </a>
@@ -70,7 +71,7 @@ const Footer = () => {
             © {currentYear} Tejedoras de Sueños. Todos los derechos reservados.
           </p>
           <p className={styles.quote}>
-            Juntas somos poder y magia ✨
+            Juntas somos poder y magia <Sparkles size={16} strokeWidth={1.5} style={{ display: 'inline', marginLeft: '4px', verticalAlign: 'text-bottom' }} />
           </p>
         </div>
       </div>
