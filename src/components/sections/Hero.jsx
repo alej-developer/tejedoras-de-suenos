@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Flower2, CalendarPlus } from 'lucide-react';
 import Button from '../ui/Button';
 import styles from './Hero.module.css';
 
@@ -32,7 +33,7 @@ const Hero = () => {
           <span className={styles.titleAccent}>de Sueños</span>
         </h1>
         <p className={styles.lema}>
-          🌸 Juntas somos poder y magia para transformar el mundo 🌸
+          <Flower2 size={20} strokeWidth={1.5} style={{ display: 'inline', marginRight: '6px', verticalAlign: 'text-bottom' }} /> Juntas somos poder y magia para transformar el mundo <Flower2 size={20} strokeWidth={1.5} style={{ display: 'inline', marginLeft: '6px', verticalAlign: 'text-bottom' }} />
         </p>
         <p className={styles.subtitle}>
           Terapia angelical, psicoterapia y empoderamiento femenino<br />
@@ -53,7 +54,7 @@ const Hero = () => {
                 background: 'rgba(255,255,255,0.08)'
               }}
             >
-              ✨ Agenda tu cita
+              <CalendarPlus size={20} strokeWidth={1.5} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom' }} /> Agenda tu cita
             </Button>
           </Link>
         </div>

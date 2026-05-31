@@ -1,3 +1,4 @@
+import { Flower2, Sparkles, Leaf, Flame, Heart, CalendarPlus } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
@@ -30,7 +31,7 @@ const SobreMi = () => {
           <div className={styles.nameBlock}>
             <p className={styles.name}>Diana Guzmán</p>
             <div className={styles.roleBadge}>
-              <span className={styles.roleIcon}>🌸</span>
+              <span className={styles.roleIcon}><Flower2 size={24} strokeWidth={1.5} /></span>
               <h3 className={styles.role}>Terapeuta Angelical</h3>
             </div>
           </div>
@@ -69,15 +70,15 @@ const SobreMi = () => {
           </div>
 
           <div className={styles.values}>
-            <span className={styles.valueTag}>✨ Sanación</span>
-            <span className={styles.valueTag}>🌿 Espiritualidad</span>
-            <span className={styles.valueTag}>💪 Empoderamiento</span>
-            <span className={styles.valueTag}>💜 Sororidad</span>
-            <span className={styles.valueTag}>🌸 Conexión</span>
+            <span className={styles.valueTag}><Sparkles size={16} strokeWidth={1.5} style={{ display: 'inline', marginRight: '6px', verticalAlign: 'text-bottom' }} /> Sanación</span>
+            <span className={styles.valueTag}><Leaf size={16} strokeWidth={1.5} style={{ display: 'inline', marginRight: '6px', verticalAlign: 'text-bottom' }} /> Espiritualidad</span>
+            <span className={styles.valueTag}><Flame size={16} strokeWidth={1.5} style={{ display: 'inline', marginRight: '6px', verticalAlign: 'text-bottom' }} /> Empoderamiento</span>
+            <span className={styles.valueTag}><Heart size={16} strokeWidth={1.5} style={{ display: 'inline', marginRight: '6px', verticalAlign: 'text-bottom' }} /> Sororidad</span>
+            <span className={styles.valueTag}><Flower2 size={16} strokeWidth={1.5} style={{ display: 'inline', marginRight: '6px', verticalAlign: 'text-bottom' }} /> Conexión</span>
           </div>
 
           <Button variant="primary" href="/agendar">
-            Agenda una sesión conmigo ✨
+            <CalendarPlus size={18} strokeWidth={1.5} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom' }} /> Agenda una sesión conmigo
           </Button>
         </div>
       </div>
