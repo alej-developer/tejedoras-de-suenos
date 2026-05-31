@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Star } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
 import testimonios from '../../data/testimonios';
 import styles from './Testimonios.module.css';
@@ -44,7 +45,9 @@ const Testimonios = () => {
               <div className={styles.card}>
                 <span className={styles.quoteIcon}>"</span>
                 <div className={styles.stars}>
-                  {'⭐'.repeat(testimonio.estrellas)}
+                  {Array.from({ length: testimonio.estrellas }).map((_, i) => (
+                    <Star key={i} size={16} fill="currentColor" stroke="none" style={{ color: '#D4AF37', marginRight: '2px' }} />
+                  ))}
                 </div>
                 <p className={styles.text}>{testimonio.texto}</p>
                 <p className={styles.authorName}>{testimonio.nombre}</p>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { MessageCircle } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
@@ -38,10 +39,10 @@ const CatalogoPreview = () => {
                 <Button
                   variant="whatsapp"
                   size="sm"
-                  href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER || '573001234567'}?text=${encodeURIComponent(`Hola Diana 🌸 Me interesa el producto: ${producto.nombre}`)}`}
+                  href={`https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER || '573001234567'}?text=${encodeURIComponent(`Hola Diana, me interesa el producto: ${producto.nombre}`)}`}
                   target="_blank"
                 >
-                  💬 Pedir
+                  <MessageCircle size={16} strokeWidth={1.5} style={{ display: 'inline', marginRight: '4px', verticalAlign: 'text-bottom' }} /> Pedir
                 </Button>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { Leaf, CalendarPlus } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Button from '../components/ui/Button';
@@ -18,7 +19,9 @@ const BlogPostPage = () => {
   if (!post) {
     return (
       <main style={{ paddingTop: 'calc(var(--navbar-height) + 4rem)', textAlign: 'center', minHeight: '100vh' }}>
-        <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>🌿</h1>
+        <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+          <Leaf size={48} strokeWidth={1.5} style={{ color: 'var(--color-primary)' }} />
+        </div>
         <h2>Artículo no encontrado</h2>
         <p style={{ color: 'var(--color-text-light)', margin: '1rem 0 2rem' }}>
           El artículo que buscas no existe o fue eliminado.
@@ -80,11 +83,11 @@ const BlogPostPage = () => {
           textAlign: 'center',
         }}>
           <p style={{ fontFamily: 'var(--font-decorative)', fontSize: '1.5rem', color: 'var(--color-primary)', marginBottom: '1.5rem' }}>
-            Con amor y luz ✨
+            Con amor y luz
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/blog"><Button variant="ghost">← Volver al blog</Button></Link>
-            <Link to="/agendar"><Button variant="primary">Agendar cita ✨</Button></Link>
+            <Link to="/agendar"><Button variant="primary"><CalendarPlus size={18} strokeWidth={1.5} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom' }} /> Agendar cita</Button></Link>
           </div>
         </div>
       </article>

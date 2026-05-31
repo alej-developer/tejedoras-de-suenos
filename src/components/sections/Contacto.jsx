@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CheckCircle2, MessageCircle, Instagram, Calendar, CalendarPlus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionTitle from '../ui/SectionTitle';
 import Button from '../ui/Button';
@@ -19,7 +20,7 @@ const Contacto = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // En MVP: abrir WhatsApp con el mensaje
-    const msg = `Hola Diana 🌸\n\nMi nombre es ${formData.nombre}.\n${formData.servicio ? `Me interesa: ${formData.servicio}\n` : ''}${formData.mensaje ? `\nMensaje: ${formData.mensaje}` : ''}\n\nMi email: ${formData.email}`;
+    const msg = `Hola Diana\n\nMi nombre es ${formData.nombre}.\n${formData.servicio ? `Me interesa: ${formData.servicio}\n` : ''}${formData.mensaje ? `\nMensaje: ${formData.mensaje}` : ''}\n\nMi email: ${formData.email}`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
     setSent(true);
   };
@@ -36,10 +37,10 @@ const Contacto = () => {
         <div className={`${styles.formCard} animate-on-scroll`}>
           {sent ? (
             <div className={styles.successMessage}>
-              <div className={styles.successIcon}>🌸</div>
+              <div className={styles.successIcon}><CheckCircle2 size={48} strokeWidth={1.5} /></div>
               <h3 className={styles.formTitle}>¡Mensaje enviado!</h3>
               <p className={styles.successText}>
-                Gracias por escribirme. Te responderé lo antes posible. ✨
+                Gracias por escribirme. Te responderé lo antes posible.
               </p>
               <Button variant="outline" onClick={() => setSent(false)} style={{ marginTop: '1rem' }}>
                 Enviar otro mensaje
@@ -47,7 +48,7 @@ const Contacto = () => {
             </div>
           ) : (
             <>
-              <h3 className={styles.formTitle}>Envíame un mensaje 💌</h3>
+              <h3 className={styles.formTitle}>Envíame un mensaje</h3>
               <form onSubmit={handleSubmit}>
                 <div className={styles.formGroup}>
                   <label className={styles.label} htmlFor="contact-nombre">Nombre</label>
@@ -100,7 +101,7 @@ const Contacto = () => {
                   />
                 </div>
                 <Button type="submit" variant="primary" fullWidth>
-                  Enviar por WhatsApp 💬
+                  <MessageCircle size={18} strokeWidth={1.5} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom' }} /> Enviar por WhatsApp
                 </Button>
               </form>
             </>
@@ -109,14 +110,14 @@ const Contacto = () => {
 
         <div className={`${styles.infoSide} animate-on-scroll delay-2`}>
           <div className={styles.infoCard}>
-            <div className={styles.infoIcon}>💬</div>
+            <div className={styles.infoIcon}><MessageCircle size={32} strokeWidth={1.5} /></div>
             <h3 className={styles.infoTitle}>WhatsApp Directo</h3>
             <p className={styles.infoText}>
               Escríbeme directamente y conversemos sobre cómo puedo acompañarte.
             </p>
             <Button
               variant="whatsapp"
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola Diana 🌸 Me gustaría saber más sobre tus servicios')}`}
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola Diana, me gustaría saber más sobre tus servicios')}`}
               target="_blank"
             >
               Abrir WhatsApp
@@ -124,7 +125,7 @@ const Contacto = () => {
           </div>
 
           <div className={styles.infoCard}>
-            <div className={styles.infoIcon}>📷</div>
+            <div className={styles.infoIcon}><Instagram size={32} strokeWidth={1.5} /></div>
             <h3 className={styles.infoTitle}>Instagram</h3>
             <p className={styles.infoText}>
               Sígueme para contenido diario de bienestar y espiritualidad.
@@ -135,14 +136,14 @@ const Contacto = () => {
           </div>
 
           <div className={styles.agendarCard}>
-            <div className={styles.infoIcon}>🗓️</div>
+            <div className={styles.infoIcon}><Calendar size={32} strokeWidth={1.5} /></div>
             <h3 className={styles.infoTitle}>Agenda tu Cita</h3>
             <p className={styles.agendarText}>
               Elige el servicio, fecha y hora que más te convenga.
             </p>
             <Link to="/agendar">
               <Button variant="primary" size="lg">
-                Ir al sistema de citas ✨
+                <CalendarPlus size={18} strokeWidth={1.5} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom' }} /> Ir al sistema de citas
               </Button>
             </Link>
           </div>

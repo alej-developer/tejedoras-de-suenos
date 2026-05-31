@@ -65,7 +65,7 @@ export const obtenerCitasPorDia = async (fecha) => {
  * Genera un mensaje de WhatsApp formateado con los datos de la cita
  */
 export const generarMensajeWhatsApp = (cita) => {
-  const mensaje = `✨ *Nueva cita - Tejedoras de Sueños* ✨
+  const mensaje = `*Nueva cita - Tejedoras de Sueños*
 
 📋 *Servicio:* ${cita.servicio}
 📅 *Fecha:* ${cita.fechaFormateada}
@@ -77,7 +77,7 @@ export const generarMensajeWhatsApp = (cita) => {
 
 ${cita.nota ? `📝 *Nota:* ${cita.nota}` : ''}
 
-_Cita agendada desde la web de Tejedoras de Sueños_ 🌸`;
+_Cita agendada desde la web de Tejedoras de Sueños_`;
 
   return encodeURIComponent(mensaje);
 };
